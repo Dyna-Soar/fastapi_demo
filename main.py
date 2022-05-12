@@ -15,6 +15,7 @@ items_db = [
 
 
 class Item(BaseModel):
+    id: int
     name: str
     price: float
     is_offer: Optional[bool] = None
@@ -34,4 +35,7 @@ async def create_item(payload: Item):
 
 @app.get("/items/{item_id}")
 async def read_item(item_id: int, q: Optional[str] = None):
-    return [item for item in items_db if item_id == item["id"]]
+    for item in items_db:
+        if item["id"] == item_id:
+            return item
+    return {"item": "no such item in db"}

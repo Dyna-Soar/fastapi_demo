@@ -7,9 +7,9 @@ app = FastAPI()
 
 items_db = [
     {
-    "id": 1,
-    "name": "orange",
-    "price": 2
+        "id": 1,
+        "name": "orange",
+        "price": 2
     }
 ]
 
